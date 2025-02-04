@@ -1,7 +1,17 @@
 import { FunctionComponent } from "react";
 import { Box, Button, Typography } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const Homepage: FunctionComponent = () => {
+  const navigate = useNavigate(); // useNavigate 훅 사용
+
+  const handleStartClick = () => {
+    navigate("/main1-sidebaron-reviewdetail"); // 이동할 경로 설정
+  };
+  const handleLoginClick = () => {
+    navigate("/loginpage");
+  };
+
   return (
     <div className="w-full h-[1080px] relative bg-background-default-default overflow-hidden flex flex-col items-start justify-start pt-0 px-0 pb-[407px] box-border leading-[normal] tracking-[normal]">
       <header className="self-stretch bg-background-default-default border-border-default-default border-b-[1px] border-solid overflow-hidden flex flex-row items-center justify-start flex-wrap content-center p-space-800 gap-x-space-600 gap-y-space-600 shrink-0 text-left text-base text-text-default-default font-body-base">
@@ -63,6 +73,7 @@ const Homepage: FunctionComponent = () => {
               borderRadius: "8px",
               "&:hover": { background: "#e3e3e3" },
             }}
+            onClick={ handleLoginClick }
           >
             Sign in
           </Button>
@@ -138,6 +149,7 @@ const Homepage: FunctionComponent = () => {
           "&:hover": { background: "#2c2c2c" },
           width: 125,
         }}
+        onClick={handleStartClick} // onClick 이벤트 추가
       >
         Start
       </Button>

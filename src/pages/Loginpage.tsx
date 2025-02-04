@@ -16,6 +16,10 @@ const Loginpage: FunctionComponent = () => {
     navigate("/main1-sidebaron-reviewdetail");
   }, [navigate]);
 
+  const handleLoginPageClick = () => {
+    navigate("/main1-sidebaron-reviewdetail");
+  };
+
   return (
     <div className="w-full relative bg-background-default-default overflow-hidden flex flex-col items-start justify-start pt-0 px-0 pb-[87px] box-border gap-11 leading-[normal] tracking-[normal] mq700:gap-[22px]">
       <header className="self-stretch flex flex-row items-start justify-start text-left text-base text-text-default-default font-body-base">
@@ -177,6 +181,7 @@ const Loginpage: FunctionComponent = () => {
               borderRadius: "0px 0px 0px 0px",
               height: 76,
             }}
+            onClick={ handleLoginPageClick }
           >
             로그인하기
           </Button>
