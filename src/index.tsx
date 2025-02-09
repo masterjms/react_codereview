@@ -1,34 +1,13 @@
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
-import {
-  CssBaseline,
-  ThemeProvider,
-  createTheme,
-  StyledEngineProvider,
-} from "@mui/material";
+// index.tsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import '../src/styles/global.css'; // 스타일 파일
+import App from './App'; // App 컴포넌트를 불러옴
 
-import "./global.css";
-
-const muiTheme = createTheme();
-
-const container = document.getElementById("root");
-const root = createRoot(container!);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
 
 root.render(
-  <BrowserRouter>
-    <StyledEngineProvider injectFirst>
-      <ThemeProvider theme={muiTheme}>
-        <CssBaseline />
-        <App />
-      </ThemeProvider>
-    </StyledEngineProvider>
-  </BrowserRouter>
+  <React.StrictMode>
+    <App /> {/* App 컴포넌트 렌더링 */}
+  </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();

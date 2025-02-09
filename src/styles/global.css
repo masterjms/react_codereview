@@ -1,0 +1,39 @@
+/* ✅ HTML 및 BODY 기본 설정 */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f6f8;
+}
+
+/* ✅ HEADER 스타일 */
+header {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+}
+
+/* ✅ NAV 스타일 */
+nav ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+}
+
+nav ul li {
+  margin-right: 20px;
+}
+
+/* ✅ FOOTER 스타일 */
+footer {
+  background-color: #282c34;
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}

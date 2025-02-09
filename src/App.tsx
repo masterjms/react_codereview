@@ -1,76 +1,26 @@
-import { useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigationType,
-  useLocation,
-} from "react-router-dom";
-import Homepage from "./pages/Homepage";
-import Main1SidebarOnReviewDetail from "./pages/Main1SidebarOnReviewDetail";
-import Loginpage from "./pages/Loginpage";
-import Main2SidebarOffSolution from "./pages/Main2SidebarOffSolution";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import HomeLayout from './layouts/HomeLayout';
+import ReviewLayout from './layouts/ReviewLayout';
+import HomePage from './pages/Homepage';
+import LoginPage from './pages/LoginPage';
+import ReviewPage from './pages/ReviewPage';
 
-function App() {
-  const action = useNavigationType();
-  const location = useLocation();
-  const pathname = location.pathname;
-
-  useEffect(() => {
-    if (action !== "POP") {
-      window.scrollTo(0, 0);
-    }
-  }, [action, pathname]);
-
-  useEffect(() => {
-    let title = "";
-    let metaDescription = "";
-
-    switch (pathname) {
-      case "/":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/main1-sidebaron-reviewdetail":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/loginpage":
-        title = "";
-        metaDescription = "";
-        break;
-      case "/main2-sidebaroff-solution":
-        title = "";
-        metaDescription = "";
-        break;
-    }
-
-    if (title) {
-      document.title = title;
-    }
-
-    if (metaDescription) {
-      const metaDescriptionTag: HTMLMetaElement | null = document.querySelector(
-        'head > meta[name="description"]'
-      );
-      if (metaDescriptionTag) {
-        metaDescriptionTag.content = metaDescription;
-      }
-    }
-  }, [pathname]);
-
+const App: React.FC = () => {
   return (
-    <Routes>
-      <Route path="/" element={<Homepage />} />
-      <Route
-        path="/main1-sidebaron-reviewdetail"
-        element={<Main1SidebarOnReviewDetail />}
-      />
-      <Route path="/loginpage" element={<Loginpage />} />
-      <Route
-        path="/main2-sidebaroff-solution"
-        element={<Main2SidebarOffSolution />}
-      />
-    </Routes>
+    <Router>
+      <Routes>
+        {/* Homepage - HomeLayout 사용 */}
+        <Route path="/" element={<HomeLayout><HomePage /></HomeLayout>} />
+        
+        {/* LoginPage - HomeLayout 사용 */}
+        <Route path="/login" element={<HomeLayout><LoginPage /></HomeLayout>} />
+        
+        {/* ReviewPage - ReviewLayout 사용 */}
+        <Route path="/review" element={<ReviewLayout><ReviewPage /></ReviewLayout>} />
+      </Routes>
+    </Router>
   );
-}
+};
+
 export default App;
